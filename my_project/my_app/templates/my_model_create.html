@@ -4,7 +4,15 @@
     <h1>Create New MyModel</h1>
     <form method="post" class="mt-3">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.name.label_tag }} {{ form.name }}
+        {% if form.name.errors %}
+            <div class="error">{{ form.name.errors }}</div>
+        {% endif %}
+        {{ form.description.label_tag }} {{ form.description }}
+        {% if form.description.errors %}
+            <div class="error">{{ form.description.errors }}</div>
+        {% endif %}
+        <!-- Add more form fields here -->
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
 {% endblock %}
