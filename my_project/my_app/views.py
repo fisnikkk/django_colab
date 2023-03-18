@@ -9,7 +9,7 @@ from django.core.paginator import Paginator
 class MyModelListView(ListView):
     model = MyModel
     template_name = 'my_model_list.html'
-    paginate_by = 10  # Show 10 items per page
+    paginate_by = 10
 
     def get_queryset(self):
         queryset = super().get_queryset()

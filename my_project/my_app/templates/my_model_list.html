@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% with request.GET.search|default:'' as search_term %}
     <h1>MyModel List</h1>
     <a href="{% url 'my_model_create' %}" class="btn btn-primary mb-3">Add New Model</a>
     
     <!-- Add the search form here -->
     <form method="get" class="mb-3">
         <div class="input-group">
-            <input type="text" class="form-control" name="search" placeholder="Search" value="{{ request.GET.search|default:'' }}">
+            <input type="text" class="form-control" name="search" placeholder="Search" value="{{ search_term }}">
             <div class="input-group-append">
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
@@ -63,5 +64,5 @@
             {% endif %}
         </ul>
     </nav>
-
+    {% endwith %}
 {% endblock %}
