@@ -3,16 +3,16 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from .models import MyModel, UserProfile
-from django.db.models import Q
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from .forms import UserProfileForm
+from django.contrib import messages  # Add this import at the beginning of the file
+from django.contrib.auth.models import User
 
 def my_model_list(request):
     models = MyModel.objects.all()
     return render(request, 'my_model_list.html', {'models': models})
-
 
 class MyModelDetailView(DetailView):
     model = MyModel
@@ -36,10 +36,9 @@ class MyModelDeleteView(DeleteView):
     success_url = '/'
 
 class UserProfileListView(ListView):
-    model = UserProfile
-    template_name = 'user_profile_list.html'  # Make sure this line matches the file name in your templates folder
-    context_object_name = 'user_profiles'
-
+    model = User
+    template_name = 'user_profile_list.html'
+    context_object_name = 'users'
 
 class UserProfileCreateView(CreateView):
     model = UserProfile
@@ -54,8 +53,8 @@ class UserProfileUpdateView(UpdateView):
     success_url = '/user_profiles/'
 
 class UserProfileDeleteView(DeleteView):
-    model = UserProfile
-    template_name = 'my_app/user_profile_confirm_delete.html'
+    model = User
+    template_name = 'user_profile_confirm_delete.html'
     success_url = '/user_profiles/'
 
 def register(request):
@@ -63,10 +62,13 @@ def register(request):
         form = UserProfileForm(request.POST)
         if form.is_valid():
             user = form.save()
-            UserProfile.objects.create(user=user)  # Add this line to create a UserProfile instance
+            UserProfile.objects.create(user=user)  # Ensure this line is being executed
             login(request, user)
             return redirect('my_model_list')
+        else:
+            for field, errors in form.errors.as_data().items():
+                for error in errors:
+                    messages.error(request, f"{field}: {error}")
     else:
         form = UserProfileForm()
     return render(request, 'register.html', {'form': form})
-
