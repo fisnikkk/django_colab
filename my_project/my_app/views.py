@@ -63,8 +63,10 @@ def register(request):
         form = UserProfileForm(request.POST)
         if form.is_valid():
             user = form.save()
+            UserProfile.objects.create(user=user)  # Add this line to create a UserProfile instance
             login(request, user)
-            return redirect('my_model_list')  # Change this to the view you want to redirect after registration
+            return redirect('my_model_list')
     else:
         form = UserProfileForm()
     return render(request, 'register.html', {'form': form})
+
