@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>User Profiles</h1>
+    <a href="{% url 'user_profile_create' %}" class="btn btn-primary mb-3">Add New User Profile</a>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user_profile in user_profiles %}
+            <tr>
+                <td>{{ user_profile.pk }}</td>
+                <td>{{ user_profile.user }}</td>
+                <td>
+                    <a href="{% url 'user_profile_update' user_profile.pk %}" class="btn btn-warning">Edit</a>
+                    <a href="{% url 'user_profile_delete' user_profile.pk %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

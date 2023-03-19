@@ -10,26 +10,9 @@ from django.contrib.auth import login
 from .forms import UserProfileForm
 
 def my_model_list(request):
-    search_term = request.GET.get('search', '')
+    models = MyModel.objects.all()
+    return render(request, 'my_model_list.html', {'models': models})
 
-    if search_term:
-        object_list = MyModel.objects.filter(name__icontains=search_term)
-    else:
-        object_list = MyModel.objects.all()
-
-    paginator = Paginator(object_list, 10) # Show 10 items per page
-
-    page = request.GET.get('page')
-    my_models = paginator.get_page(page)
-
-    context = {
-        'object_list': my_models,
-        'search_term': search_term,
-        'page_obj': my_models,
-        'paginator': paginator,
-    }
-
-    return render(request, 'my_model_list.html', context)
 
 class MyModelDetailView(DetailView):
     model = MyModel
@@ -54,19 +37,20 @@ class MyModelDeleteView(DeleteView):
 
 class UserProfileListView(ListView):
     model = UserProfile
-    template_name = 'my_app/user_profile_list.html'
+    template_name = 'user_profile_list.html'  # Make sure this line matches the file name in your templates folder
     context_object_name = 'user_profiles'
+
 
 class UserProfileCreateView(CreateView):
     model = UserProfile
     form_class = UserProfileForm
-    template_name = 'my_app/user_profile_form.html'
+    template_name = 'user_profile_form.html'
     success_url = '/user_profiles/'
 
 class UserProfileUpdateView(UpdateView):
     model = UserProfile
     form_class = UserProfileForm
-    template_name = 'my_app/user_profile_form.html'
+    template_name = 'user_profile_form.html'
     success_url = '/user_profiles/'
 
 class UserProfileDeleteView(DeleteView):
