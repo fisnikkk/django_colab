@@ -2,10 +2,20 @@
 
 {% block content %}
   <h2>Edit Blog Post</h2>
-  <form method="post" action="{% url 'blog_post_update' pk=object.pk %}">
-
+  <form method="post" class="mt-4">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Update</button>
+    <div class="form-group">
+      <label for="{{ form.title.id_for_label }}">Title:</label>
+      <input type="text" class="form-control" id="{{ form.title.id_for_label }}" name="{{ form.title.html_name }}" value="{{ form.title.value|default:'' }}" required>
+    </div>
+    <div class="form-group">
+      <label for="{{ form.author.id_for_label }}">Author:</label>
+      <input type="text" class="form-control" id="{{ form.author.id_for_label }}" name="{{ form.author.html_name }}" value="{{ form.author.value|default:'' }}" required>
+    </div>
+    <div class="form-group">
+      <label for="{{ form.content.id_for_label }}">Content:</label>
+      <textarea class="form-control" id="{{ form.content.id_for_label }}" name="{{ form.content.html_name }}" rows="10" required>{{ form.content.value|default:'' }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
   </form>
 {% endblock %}

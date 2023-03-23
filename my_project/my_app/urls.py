@@ -5,7 +5,7 @@ from .models import BlogPost, UserProfile, User
 
 urlpatterns = [
     path('', views.BlogPostListView.as_view(), name='blog_post_list'),
-    
+    path('user_profiles/<int:pk>/', views.UserProfileDetailView.as_view(), name='user_profile_detail'),
     path('register/', views.register, name='register'),
     path('user_profiles/', views.user_profile_list, name='user_profile_list'),
     path('user_profiles/create/', views.UserProfileCreateView.as_view(), name='user_profile_create'),
