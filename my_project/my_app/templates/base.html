@@ -17,7 +17,7 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{% url 'my_model_list' %}">My App</a>
+    <a class="navbar-brand" href="{% url 'blog_post_list' %}">My App</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -25,15 +25,28 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+        {% if user.is_authenticated %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+    </li>
+{% else %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}">Login</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'register' %}">Register</a>
+    </li>
+{% endif %}
+
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'my_model_list' %}">My Models</a>
+          <a class="nav-link" href="{% url 'blog_post_list' %}">My Blog</a>
         </li>
+        {% if user.is_authenticated and user.is_staff %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'my_model_create' %}">Add New Model</a>
+            <a class="nav-link" href="{% url 'user_profile_list' %}">User Profiles</a>
         </li>
-        <li class="nav-item">
-        <a class="nav-link" href="{% url 'user_profile_list' %}">User Profiles</a>
-        </li>
+        {% endif %}
+
       </ul>
     </div>
   </nav>
@@ -48,4 +61,4 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="{% static 'js/scripts.js' %}"></script>
 </body>
-</html
+</html>
