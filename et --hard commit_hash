@@ -1,0 +1,149 @@
+[33mcommit 0c0ba34f22e25909f763141ed94ee40ee5b58722[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Mon Mar 20 11:46:34 2023 +0100
+
+    edit and delete users now works
+
+[33mcommit 213b0b4426c2bc5e834c701426f70409c9df5c3c[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sun Mar 19 13:19:54 2023 +0100
+
+    users creation
+
+[33mcommit fac9626e30f28ce8ca04293c6c424269de5eb2eb[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sun Mar 19 10:58:19 2023 +0100
+
+    remove add user
+
+[33mcommit d14c2895505b19768d63b97f21a8c8ab038ac97a[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sun Mar 19 10:44:28 2023 +0100
+
+    register
+
+[33mcommit 554db6816bfde7f3b0358d01486c75d6d6442a05[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 19:05:51 2023 +0100
+
+    forms
+
+[33mcommit ba1b18663a44f3b28263ff80cd8cb89293e93dc1[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 18:27:15 2023 +0100
+
+    newbar
+
+[33mcommit ee6cb9faa18f5263d081dd0a84916bb827250321[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 17:45:26 2023 +0100
+
+    pagination
+
+[33mcommit 3b4d770f17f44522467ea17f457e6adb02a7bbd8[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 15:35:57 2023 +0100
+
+    new changes
+
+[33mcommit ff9576de3288e18922dcd9234be07fbc4666ef67[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 12:21:00 2023 +0100
+
+    Commited
+
+[33mcommit 78da552f4f5b7b1054b1a2199994b450fbccf65c[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 12:20:43 2023 +0100
+
+    Create __init__.cpython-39.pyc
+
+[33mcommit ac1e39adb7b4928858d823add23deb8bffb4aed7[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 12:20:40 2023 +0100
+
+    Create 0001_initial.cpython-39.pyc
+
+[33mcommit 7f5255c39808496b39448e858aa8175bd9226384[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 12:20:38 2023 +0100
+
+    Create __init__.py
+
+[33mcommit 15198dd9bac3b148f02573eff3dca8bb2422e5bf[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 12:20:35 2023 +0100
+
+    Create 0001_initial.py
+
+[33mcommit 65a6652b3fd87592dbee18d6ba2f228a78819e86[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 12:20:33 2023 +0100
+
+    Create apps.py
+
+[33mcommit 2f0a1386e791f9ce7b97b6428a0a484daf9ea0b0[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 12:20:30 2023 +0100
+
+    Create admin.py
+
+[33mcommit 89c002dc5f41899cdb2093a856bf24e1c1b62499[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 12:20:28 2023 +0100
+
+    Create views.cpython-39.pyc
+
+[33mcommit e77ecdf47a54ee839fa5cd52e15469a59d7e829a[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 12:20:25 2023 +0100
+
+    Create urls.cpython-39.pyc
+
+[33mcommit a1fb3fd2e08a64c3ecdfbd031cbadc6f0c966edd[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 12:20:23 2023 +0100
+
+    Create models.cpython-39.pyc
+
+[33mcommit 50d6dab2d63411adcd2b6f447a7a2240552b42f6[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 12:20:21 2023 +0100
+
+    Create apps.cpython-39.pyc
+
+[33mcommit cce97dab531e87986e7e9e4c260a115d40d81ab1[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 12:20:17 2023 +0100
+
+    Create admin.cpython-39.pyc
+
+[33mcommit a310e4f2e3e6e81d60810825619f615e29165f8b[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 12:20:15 2023 +0100
+
+    Create __init__.cpython-39.pyc
+
+[33mcommit 59496da842480bc3cad1e01df4397dc5910bb7f6[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 12:20:12 2023 +0100
+
+    Create __init__.py
+
+[33mcommit 7cd20589039b80d8b7a357cc2baf52b35c0bf9e6[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 12:20:09 2023 +0100
+
+    Create manage.py
+
+[33mcommit 45ae541d1f51d50780caa9d34520eda594e12c5c[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 12:20:07 2023 +0100
+
+    Create db.sqlite3
+
+[33mcommit fed9d03e077e8baaca9f474b6296f04a0fdab948[m
+Author: Fisnik Kurti <47564531+fisnikkk@users.noreply.github.com>
+Date:   Sat Mar 18 12:19:28 2023 +0100
+
+    Initial commit
