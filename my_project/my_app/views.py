@@ -22,6 +22,15 @@ class BlogPostDetailView(DetailView):
     model = BlogPost
     template_name = 'blog_post_detail.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['blog_post'] = context.pop('blogpost')  # Rename the key
+        print(f"Blog post pk: {context['blog_post'].pk}")
+        return context
+
+
+
+
 class BlogPostCreateView(CreateView):
 
     model = BlogPost
@@ -39,7 +48,7 @@ class BlogPostUpdateView(UpdateView):
 
 class BlogPostDeleteView(DeleteView):
     model = BlogPost
-    template_name = 'my_model_delete.html'
+    template_name = 'blog_post_delete.html'
     success_url = '/'
 
 class UserProfileCreateView(CreateView):
@@ -64,7 +73,8 @@ class UserProfileDeleteView(DeleteView):
 class BlogPostListView(ListView):
     model = BlogPost
     template_name = 'blog_post_list.html'
-    context_object_name = 'models'
+    context_object_name = 'blog_posts'
+
 
 def register(request):
     if request.method == 'POST':
@@ -72,7 +82,12 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('blog_post_list.html')
+            return redirect('blog_post_list')
     else:
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form})
+
+def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    print(f"Blog post pk: {context['blogpost'].pk}")
+    return context

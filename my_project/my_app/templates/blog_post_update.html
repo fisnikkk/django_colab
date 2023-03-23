@@ -2,7 +2,8 @@
 
 {% block content %}
   <h2>Edit Blog Post</h2>
-  <form method="post">
+  <form method="post" action="{% url 'blog_post_update' pk=object.pk %}">
+
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-primary">Update</button>
