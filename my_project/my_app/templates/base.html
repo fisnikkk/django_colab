@@ -14,7 +14,7 @@
 
   <style>
     body {
-      background-image: linear-gradient(to right, #b0c2d1 0%, #00f2fe 100%);
+      background-image:url("/static/images/foto2.jpg");
       background-size: cover;
       background-position: center;
     }
@@ -37,6 +37,9 @@
 
         <li class="nav-item">
           <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'search' %}">Search</a>
         </li>
         {% else %}
         <li class="nav-item">

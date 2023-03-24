@@ -13,6 +13,20 @@ from .models import BlogPost, UserProfile, User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DetailView
 from .models import UserProfile
+# my_app/views.py
+
+from django.shortcuts import render
+from .models import MyModel
+
+def search(request):
+    query = request.GET.get('q')
+
+    if query:
+        results = MyModel.objects.filter(title__icontains=query)
+    else:
+        results = []
+
+    return render(request, 'search.html', {'results': results})
 
 
 

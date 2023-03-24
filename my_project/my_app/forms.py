@@ -1,6 +1,13 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import UserProfile, User
+# my_app/forms.py
+
+from django import forms
+
+class SearchForm(forms.Form):
+    query = forms.CharField()
+
 
 class UserProfileForm(forms.ModelForm):
     username = forms.CharField(max_length=150, required=True, help_text="Required.")

@@ -1,0 +1,20 @@
+<!-- my_app/templates/search.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="color: white;">Search Results</h1>
+    <form method="get">
+        <input type="text" name="q" placeholder="Search...">
+        <button type="submit">Go</button>
+    </form>
+    {% if results %}
+        <ul>
+        {% for result in results %}
+            <li>{{ result.title }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p style="color: white;">No results found.</p>
+    {% endif %}
+{% endblock %}

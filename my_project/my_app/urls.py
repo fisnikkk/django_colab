@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
 from .models import BlogPost, UserProfile, User
+from .views import search
+
 
 urlpatterns = [
     path('', views.BlogPostListView.as_view(), name='blog_post_list'),
@@ -17,4 +19,6 @@ urlpatterns = [
     path('blog_post/<int:pk>/delete/', views.BlogPostDeleteView.as_view(), name='blog_post_delete'),
     path('accounts/login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('search/', search, name='search'),
+
 ]

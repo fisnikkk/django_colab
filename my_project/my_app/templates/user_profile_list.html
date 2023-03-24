@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>User Profiles</h1>
-  <a href="{% url 'user_profile_create' %}" class="btn btn-primary mb-3">Register User</a>
-  <table class="table table-striped">
-    <thead>
-      <tr>
+  <h1 style="color: white;">User Profiles</h1>
+  <a href="{% url 'user_profile_create' %}" class="btn btn-primary mb-3" style="color: white;">Register User</a>
+  <table class="table table-striped" style="color: white;">
+    <thead style="color: white;">
+      <tr >
         <th>ID</th>
         <th>Username</th>
         <th>Email</th>
@@ -14,18 +14,18 @@
     </thead>
     <tbody>
       {% for user in users %}
-        <tr>
+        <tr style="color: white;">
           <td>{{ user.pk }}</td>
           <td>{{ user.username }}</td>
           <td>{{ user.email }}</td>
-          <td>
+          <td >
             <a href="{% url 'user_profile_update' user.pk %}" class="btn btn-warning">Edit</a>
             <a href="{% url 'user_profile_delete' user.pk %}" class="btn btn-danger">Delete</a>
           </td>
         </tr>
       {% empty %}
         <tr>
-          <td colspan="4" class="text-center">No users found.</td>
+          <td colspan="4" class="text-center" style="color: white;">No users found.</td>
         </tr>
       {% endfor %}
     </tbody>
