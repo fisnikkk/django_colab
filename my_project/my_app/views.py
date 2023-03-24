@@ -13,10 +13,35 @@ from .models import BlogPost, UserProfile, User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DetailView
 from .models import UserProfile
-# my_app/views.py
-
 from django.shortcuts import render
 from .models import MyModel
+from django.shortcuts import render
+from .forms import DocumentForm
+from django.shortcuts import render, redirect
+from .models import Document
+from .forms import DocumentForm
+
+
+def upload_file(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            newdoc = Document(docfile=request.FILES['docfile'])
+            newdoc.save()
+
+            return redirect('upload_success')
+        
+    else:
+        form = DocumentForm()
+
+    return render(request, 'upload.html', {'form': form})
+
+
+def upload_success(request):
+    return render(request, 'upload_success.html')
+
+
+
 
 def search(request):
     query = request.GET.get('q')

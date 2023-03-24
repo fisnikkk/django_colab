@@ -1,9 +1,16 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
-# my_app/models.py
-
 from django.db import models
+from django.db import models
+
+
+class Document(models.Model):
+    #docfile = models.FileField(upload_to='documents/')
+    docfile = models.FileField(upload_to='documents/%Y/%m/%d')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+# my_app/models.py
 
 class MyModel(models.Model):
     title = models.CharField(max_length=100)

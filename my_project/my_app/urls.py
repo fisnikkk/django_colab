@@ -20,5 +20,7 @@ urlpatterns = [
     path('accounts/login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('search/', search, name='search'),
+    path('upload/', views.upload_file, name='upload_file'),
+    path('upload/success/', views.upload_success, name='upload_success'),
 
 ]

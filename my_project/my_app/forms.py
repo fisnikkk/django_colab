@@ -1,9 +1,19 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import UserProfile, User
-# my_app/forms.py
-
 from django import forms
+from django import forms
+from .models import Document
+
+
+
+
+
+class DocumentForm(forms.ModelForm):
+    class Meta:
+        model = Document
+        fields = ('docfile',)
+
 
 class SearchForm(forms.Form):
     query = forms.CharField()
