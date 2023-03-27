@@ -1,8 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
-from django.db import models
-from django.db import models
+
 
 
 class Document(models.Model):
@@ -26,6 +25,7 @@ class BlogPost(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    upload = models.FileField(upload_to='uploads/', null=True, blank=True) # Add this line
 
     def __str__(self):
         return self.title

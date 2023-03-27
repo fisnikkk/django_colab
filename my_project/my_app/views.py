@@ -20,6 +20,18 @@ from .forms import DocumentForm
 from django.shortcuts import render, redirect
 from .models import Document
 from .forms import DocumentForm
+from django.db.models import Q
+from django.http import JsonResponse
+from .forms import BlogPostForm
+from .models import BlogPost
+import os
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
+import docx
+
+
+
+
 
 
 def upload_file(request):
@@ -42,16 +54,32 @@ def upload_success(request):
 
 
 
-
 def search(request):
     query = request.GET.get('q')
 
     if query:
-        results = MyModel.objects.filter(title__icontains=query)
+        words = query.split()
+        query_filter = Q()
+        for word in words:
+            query_filter |= Q(title__icontains=word) | Q(content__icontains=word)
+        results = BlogPost.objects.filter(query_filter)
     else:
         results = []
 
     return render(request, 'search.html', {'results': results})
+
+
+def search_suggestions(request):
+    query = request.GET.get('q', '')
+    if len(query) > 2:
+        suggestions = BlogPost.objects.filter(title__icontains=query)[:5].values('id', 'title')
+    else:
+        suggestions = []
+
+    print(f"Suggestions: {suggestions}")
+    return JsonResponse({'suggestions': list(suggestions)})
+
+
 
 
 
@@ -150,3 +178,34 @@ def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
     print(f"Blog post pk: {context['blogpost'].pk}")
     return context
+
+
+def read_docx_file(file):
+    doc = docx.Document(file)
+    content = ''
+    for paragraph in doc.paragraphs:
+        content += paragraph.text + '\n'
+    return content
+
+def blog_post_create(request):
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            uploaded_file = request.FILES.get('upload')
+            if uploaded_file:
+                file_extension = os.path.splitext(uploaded_file.name)[1].lower()
+                if file_extension == '.txt':
+                    content = uploaded_file.read().decode()
+                    post.content = content
+                elif file_extension == '.docx':
+                    content = read_docx_file(uploaded_file)
+                    post.content = content
+                else:
+                    messages.error(request, 'Invalid file format. Please upload a .txt or .docx file.')
+                    return render(request, 'blog_post_create.html', {'form': form})
+            post.save()
+            return redirect('blog_post_list')
+    else:
+        form = BlogPostForm()
+    return render(request, 'blog_post_create.html', {'form': form})

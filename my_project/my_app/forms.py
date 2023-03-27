@@ -4,6 +4,7 @@ from .models import UserProfile, User
 from django import forms
 from django import forms
 from .models import Document
+from .models import BlogPost
 
 
 
@@ -13,6 +14,17 @@ class DocumentForm(forms.ModelForm):
     class Meta:
         model = Document
         fields = ('docfile',)
+        widgets = {
+            'docfile': forms.ClearableFileInput(attrs={'multiple': True}),
+        }
+
+class BlogPostForm(forms.ModelForm):
+    upload = forms.FileField(required=False, label='Upload File')  # Add this line
+
+    class Meta:
+        model = BlogPost
+        fields = ['title', 'author', 'content', 'upload']
+
 
 
 class SearchForm(forms.Form):

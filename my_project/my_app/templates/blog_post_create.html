@@ -2,8 +2,9 @@
 
 {% block content %}
   <h2 style="color: white;">Create New Blog Post</h2>
-  <form method="post">
+  <form method="post" enctype="multipart/form-data"> <!-- Add enctype attribute -->
     {% csrf_token %}
+    
     <div class="mb-3" style="color: white;">
       <label for="{{ form.title.id_for_label }}" class="form-label">Title</label>
       <input type="text" class="form-control" id="{{ form.title.id_for_label }}" name="{{ form.title.html_name }}" required>
@@ -16,6 +17,49 @@
       <label for="{{ form.content.id_for_label }}" class="form-label">Content</label>
       <textarea class="form-control" id="{{ form.content.id_for_label }}" name="{{ form.content.html_name }}" rows="5" required></textarea>
     </div>
+    <div class="mb-3" style="color: white;">
+      <label for="{{ form.upload.id_for_label }}">Upload:</label>
+      <input type="file" id="{{ form.upload.id_for_label }}" name="{{ form.upload.html_name }}" onchange="readFile(this);" required>
+      {% if form.upload.errors %}
+        <div class="invalid-feedback">
+          {{ form.upload.errors|join:", " }}
+        </div>
+      {% endif %}
+    </div>
+    
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  function readFile(input) {
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+      const fileExtension = file.name.split('.').pop().toLowerCase();
+
+      if (fileExtension === 'txt') {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('{{ form.content.id_for_label }}').value = e.target.result;
+        }
+        reader.readAsText(file);
+      } else if (fileExtension === 'docx') {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const arrayBuffer = e.target.result;
+          mammoth.extractRawText({arrayBuffer: arrayBuffer})
+            .then(function(result) {
+              document.getElementById('{{ form.content.id_for_label }}').value = result.value;
+            })
+            .catch(function(error) {console.error("Error: ", error);
+            });
+        }
+        reader.readAsArrayBuffer(file);
+      } else {
+        alert('Unsupported file format. Only .txt and .docx files are allowed.');
+      }
+    }
+  }
+</script>
 {% endblock %}

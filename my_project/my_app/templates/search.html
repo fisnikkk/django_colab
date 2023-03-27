@@ -1,20 +1,14 @@
-<!-- my_app/templates/search.html -->
-
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 style="color: white;">Search Results</h1>
-    <form method="get">
-        <input type="text" name="q" placeholder="Search...">
-        <button type="submit">Go</button>
-    </form>
+    <h1>Search results</h1>
     {% if results %}
         <ul>
-        {% for result in results %}
-            <li>{{ result.title }}</li>
-        {% endfor %}
+            {% for result in results %}
+                <li><a href="{% url 'blog_post_detail' result.pk %}">{{ result.title }}</a></li>
+            {% endfor %}
         </ul>
     {% else %}
-        <p style="color: white;">No results found.</p>
+        <p>No results found.</p>
     {% endif %}
 {% endblock %}
