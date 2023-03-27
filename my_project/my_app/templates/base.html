@@ -35,6 +35,44 @@
     #search-suggestions div:hover {
         background-color: #f1f1f1;
     }
+    .wrapper {
+        margin-left: 15%; /* Adjust this value as needed */
+        margin-right: 15%; /* Adjust this value as needed */
+      }
+
+    .left-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 15%; /* Adjust this value as needed */
+        background-image: url('/static/images/natyr.png');
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+      }
+      .right-background {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 15%; /* Adjust this value as needed */
+      background-image: url('/static/images/natyr.png'); 
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      }
+
+      .content-area {
+        margin-left: 0; /* Adjust this value as needed */
+        margin-right:0; /* Adjust this value as needed */
+      }
+
+      nav.navbar {
+        position: relative;
+        left: 0%; /* Adjust this value as needed */
+        width: 100%; /* Adjust this value as needed */
+      }
     
       body {
         background-image: url("/static/images/foto2.jpg");
@@ -46,13 +84,15 @@
     
   </head>
 <body>
+  <div class="left-background"></div>
+  <div class="right-background"></div> 
+    <div class="wrapper">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="{% url 'blog_post_list' %}">My App</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         {% if user.is_authenticated %}
