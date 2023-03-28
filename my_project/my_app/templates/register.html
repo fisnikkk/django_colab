@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2 style="color: white;">Register</h2>
-  <form method="post" style="color: white;">
+<h2 style="color: white;">Register &#128100;</h2>
+<form method="post" style="color: white;">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-primary">Register</button>

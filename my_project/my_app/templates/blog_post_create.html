@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2 style="color: white;">Create New Blog Post</h2>
-  <form method="post" enctype="multipart/form-data"> <!-- Add enctype attribute -->
+<h2 style="color: white;">Create New Blog Post &#128394;</h2>
+<form method="post" enctype="multipart/form-data"> <!-- Add enctype attribute -->
     {% csrf_token %}
     
     <div class="mb-3" style="color: white;">
       <label for="{{ form.title.id_for_label }}" class="form-label">Title</label>
-      <input type="text" class="form-control" id="{{ form.title.id_for_label }}" name="{{ form.title.html_name }}" required>
+      <input type="text" class="form-control" id="{{ form.title.id_for_label }}" name="{{ form.title.html_name }}" style="background-color: #023020; border:2px solid green" required>
     </div>
     <div class="mb-3" style="color: white;">
       <label for="{{ form.author.id_for_label }}" class="form-label">Author</label>
-      <input type="text" class="form-control" id="{{ form.author.id_for_label }}" name="{{ form.author.html_name }}" required>
+      <input type="text" class="form-control" id="{{ form.author.id_for_label }}" name="{{ form.author.html_name }}" style="background-color: #023020; border:2px solid green" required>
     </div>
     <div class="mb-3" style="color: white;">
       <label for="{{ form.content.id_for_label }}" class="form-label">Content</label>
-      <textarea class="form-control" id="{{ form.content.id_for_label }}" name="{{ form.content.html_name }}" rows="5" required></textarea>
+      <textarea class="form-control" id="{{ form.content.id_for_label }}" name="{{ form.content.html_name }}" rows="5" style="background-color: #023020; border:2px solid green" required></textarea>
     </div>
     <div class="mb-3" style="color: white;">
       <label for="{{ form.upload.id_for_label }}">Upload:</label>

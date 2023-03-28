@@ -87,8 +87,8 @@
   <div class="left-background"></div>
   <div class="right-background"></div> 
     <div class="wrapper">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{% url 'blog_post_list' %}">My App</a>
+  <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #023020; color: #f6f6f6;">
+    <a class="navbar-brand" style="color: #f6f6f6;" href="{% url 'blog_post_list' %}">My App</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -97,26 +97,26 @@
       <ul class="navbar-nav mr-auto">
         {% if user.is_authenticated %}
         {% if user.is_authenticated %}
-  <a class="nav-link" href="{% url 'user_profile_detail' user.pk %}">My Account</a>
+  <a class="nav-link" style="color: #f6f6f6;" href="{% url 'user_profile_detail' user.pk %}">My Account</a>
 {% endif %}
 
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          <a class="nav-link" style="color: #f6f6f6;" href="{% url 'logout' %}">Logout</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'upload_file' %}">Upload</a>
+          <a class="nav-link"  style="color: #f6f6f6;" href="{% url 'upload_file' %}">Upload</a>
         </li>
         {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'login' %}">Login</a>
+          <a class="nav-link" style="color: #f6f6f6;" href="{% url 'login' %}">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'register' %}">Register</a>
+          <a class="nav-link"  style="color: #f6f6f6;" href="{% url 'register' %}">Register</a>
         </li>
         {% endif %}
 
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'blog_post_list' %}">My Blog</a>
+          <a class="nav-link"   style="color: #f6f6f6;" href="{% url 'blog_post_list' %}">My Blog</a>
         </li>
         {% if user.is_authenticated and user.is_staff %}
         <li class="nav-item">
@@ -127,7 +127,7 @@
         <!-- Add the search form here -->
         <form class="form-inline my-2 my-lg-0" id="search-form">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <button class="btn btn-outline-success my-2 my-sm-0" style="color: #f6f6f6;"  type="submit">Search</button>
         </form>
       </ul>
     </div>
