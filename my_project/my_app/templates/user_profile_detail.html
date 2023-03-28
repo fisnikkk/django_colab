@@ -2,7 +2,7 @@
 
 {% block content %}
   <div class="user-profile" style="color: white;">
-    <h2>{{ user_profile.user.username }}</h2>
+    <h2>{{ user_profile.user.username }} &#128100;</h2>
     <p>Email: {{ user_profile.user.email }}</p>
     <a href="{% url 'user_profile_update' pk=user_profile.user.pk %}" class="btn btn-warning">Edit Profile</a>
   </div>
