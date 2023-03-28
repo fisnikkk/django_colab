@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2 style="color: white;">My Blog</h2>
-  <a href="{% url 'blog_post_create' %}" class="btn btn-primary mb-3">Create New Blog Post</a>
+<h2 style="color: white;">My Blog &#128204;</h2>
+<a href="{% url 'blog_post_create' %}" class="btn btn-primary mb-3">Create New Blog Post</a>
 
   <div class="row">
     {% for blog_post in blog_posts %}
       <div class="col-md-4 mb-4">
-        <div class="card">
+        <div class="card" style="background-color: #023020; color: white; border:2px solid green">
           <div class="card-body">
-            <h5 class="card-title">{{ blog_post.title }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">by {{ blog_post.author }}</h6>
+            <h5 class="card-title">{{ blog_post.title }} &#128214;</h5>
+            <h6  style="color:white">by {{ blog_post.author }} &#9997;</h6>
             <p class="card-text">{{ blog_post.content|truncatewords:20 }}</p>
             <a href="{% url 'blog_post_detail' blog_post.pk %}" class="card-link">Read more</a>
             <a href="{% url 'blog_post_update' blog_post.pk %}" class="card-link">Edit</a>

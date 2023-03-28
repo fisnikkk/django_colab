@@ -1,4 +1,10 @@
 /* Style the blog post container */
+.body{
+  background-color: #023020;
+   color: white;
+
+}
+
 .blog-post {
   background-color: #ffffff;
   padding: 20px;
@@ -36,3 +42,10 @@ main .container {
 .navbar-custom {
   background-color: #f9efef;
 }
+
+.navbar-light {
+  background-color: #023020;
+  color: #f6f6f6;
+}
+
+
