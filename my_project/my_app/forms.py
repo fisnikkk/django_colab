@@ -9,14 +9,14 @@ from .models import BlogPost
 
 
 
-
 class DocumentForm(forms.ModelForm):
     class Meta:
         model = Document
         fields = ('docfile',)
         widgets = {
-            'docfile': forms.ClearableFileInput(attrs={'multiple': True}),
+            'docfile': forms.ClearableFileInput(attrs={'multiple': True, 'accept': 'image/*'}),
         }
+
 
 class BlogPostForm(forms.ModelForm):
     upload = forms.FileField(required=False, label='Upload File')  # Add this line

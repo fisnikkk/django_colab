@@ -28,26 +28,36 @@ import os
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 import docx
-
-
-
-
+from .models import Document
+from django.shortcuts import redirect
+from django.http import HttpResponseNotAllowed
 
 
 def upload_file(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
-            newdoc = Document(docfile=request.FILES['docfile'])
-            newdoc.save()
+            # Save the uploaded image
+            form.save()
 
+            # Redirect to the 'upload_success' view
             return redirect('upload_success')
-        
     else:
         form = DocumentForm()
 
     return render(request, 'upload.html', {'form': form})
 
+def display_images(request):
+    images = Document.objects.all()
+    return render(request, 'display_images.html', {'images': images})
+
+def delete_image(request, image_id):
+    if request.method == 'POST':
+        image = Document.objects.get(pk=image_id)
+        image.docfile.delete()
+        image.delete()
+        return redirect('display_images')
+    return HttpResponseNotAllowed(['POST'])
 
 def upload_success(request):
     return render(request, 'upload_success.html')

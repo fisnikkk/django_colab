@@ -1,14 +1,50 @@
 {% extends 'base.html' %}
 
+{% block head %}
+  {{ block.super }}
+  <style>
+    .container {
+      margin-top: 30px;
+    }
+
+    h2 {
+      color: white;
+    }
+
+    .card {
+      background-color: #023020;
+      color: white;
+      border: 2px solid green;
+    }
+
+    .card-title a {
+      color: white;
+    }
+
+    .card-text {
+      margin-bottom: 0;
+    }
+  </style>
+{% endblock %}
+
 {% block content %}
-<h1 style="color: white;">Search results</h1>
-    {% if results %}
-        <ul>
-            {% for result in results %}
-                <li><a href="{% url 'blog_post_detail' result.pk %}">{{ result.title }}</a></li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No results found.</p>
-    {% endif %}
+<div class="container">
+  <h2>Search Results</h2>
+  {% if results %}
+    <div class="row">
+      {% for result in results %}
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><a href="{% url 'blog_post_detail' result.pk %}">{{ result.title }}</a></h5>
+              <p class="card-text">{{ result.content|truncatewords:20 }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No results found.</p>
+  {% endif %}
+</div>
 {% endblock %}

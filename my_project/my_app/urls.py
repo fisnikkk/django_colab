@@ -8,6 +8,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+     path('delete_image/<int:image_id>/', views.delete_image, name='delete_image'),
+    path('display_images/', views.display_images, name='display_images'),
     path('search_suggestions/', views.search_suggestions, name='search_suggestions'),
     path('', views.BlogPostListView.as_view(), name='blog_post_list'),
     path('user_profiles/<int:pk>/', views.UserProfileDetailView.as_view(), name='user_profile_detail'),
