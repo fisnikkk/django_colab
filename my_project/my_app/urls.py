@@ -27,6 +27,8 @@ urlpatterns = [
     path('search/', search, name='search'),
     path('upload/', views.upload_file, name='upload_file'),
     path('upload/success/', views.upload_success, name='upload_success'),
+    path('change-password/', views.change_password, name='change_password'),
+
 
 ]
 if settings.DEBUG:
