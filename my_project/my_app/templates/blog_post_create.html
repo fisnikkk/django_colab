@@ -20,7 +20,7 @@
     </div>
     <div class="mb-3" style="color: white;">
       <label for="{{ form.upload.id_for_label }}">Upload:</label>
-      <input type="file" id="{{ form.upload.id_for_label }}" name="{{ form.upload.html_name }}" onchange="readFile(this);" required>
+      <input type="file" id="{{ form.upload.id_for_label }}" name="{{ form.upload.html_name }}" onchange="readFile(this);" >
       {% if form.upload.errors %}
         <div class="invalid-feedback">
           {{ form.upload.errors|join:", " }}
