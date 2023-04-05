@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
       if (file.type.startsWith("image/")) {
         const img = document.createElement("img");
         img.src = URL.createObjectURL(file);
+
         img.style.width = "250px";
         img.style.height = "250px";
         img.style.margin = "10px";
