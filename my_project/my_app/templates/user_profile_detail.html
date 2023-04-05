@@ -1,11 +1,44 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="author" content="KUjtesa"/>
+  <link rel="stylesheet" href="{% static 'css/upload.css' %}">
+  <script src="{% static 'js/upload.js' %}" defer type="text/javascript"></script>
+
+  
+</head>
   <div class="user-profile" style="color: white;">
     <h2>{{ user_profile.user.username }} &#128100;</h2>
     <p>Email: {{ user_profile.user.email }}</p>
     <a href="{% url 'user_profile_update' pk=user_profile.user.pk %}" class="btn btn-warning">Edit Profile</a>
   </div>
+
+  <body>
+    <br>
+    <hr style="color: white;">
+    <h3 style="color: white;">My Books</h3>
+    <img src="/static/images/foto1.webp" alt="A beautiful image" width="300" height="200" onclick="openModal(this);" style="border:2px white; border-style: double;  border-width: 5px;" >
+    <img src="/static/images/foto2.webp" alt="A beautiful image" width="300" height="200" onclick="openModal(this);" style="border:2px white; border-style: double;  border-width: 5px;">
+    <img src="/static/images/foto3.webp" alt="A beautiful image" width="300" height="200" onclick="openModal(this);" style="border:2px white; border-style: double;  border-width: 5px;">
+    <img src="/static/images/foto4.webp" alt="A beautiful image" width="300" height="200"  onclick="openModal(this);" style="border:2px white; border-style: double;  border-width: 5px;">
+    <img src="/static/images/foto5.webp" alt="A beautiful image" width="300" height="200" onclick="openModal(this);" style="border:2px white; border-style: double;  border-width: 5px;">
+    <img src="/static/images/foto6.webp" alt="A beautiful image" width="300" height="200" onclick="openModal(this);" style="border:2px white; border-style: double;  border-width: 5px;">
+    <img src="/static/images/foto7.webp" alt="A beautiful image" width="300" height="200" onclick="openModal(this);" style="border:2px white; border-style: double;  border-width: 5px;">
+    <img src="/static/images/foto8.webp" alt="A beautiful image" width="300" height="200" onclick="openModal(this);" style="border:2px white; border-style: double;  border-width: 5px;">
+    <img src="/static/images/foto9.webp" alt="A beautiful image" width="300" height="200" onclick="openModal(this);" style="border:2px white; border-style: double;  border-width: 5px;">
+    <img src="/static/images/foto10.webp" alt="A beautiful image" width="300" height="200" onclick="openModal(this);" style="border:2px white; border-style: double;  border-width: 5px;">
+    <img src="/static/images/foto11.webp" alt="A beautiful image" width="300" height="200" onclick="openModal(this);" style="border:2px white; border-style: double;  border-width: 5px;">
+    <img src="/static/images/foto12.webp" alt="A beautiful image" width="300" height="200" onclick="openModal(this);" style="border:2px white; border-style: double;  border-width: 5px;">
+
+
+
+  </body>
 
 
 {% endblock %}
