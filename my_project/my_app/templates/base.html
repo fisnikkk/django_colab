@@ -66,9 +66,9 @@
         left: 0;
         bottom: 0;
         width: 15%; /* Adjust this value as needed */
-        background-image: url('/static/images/natyr.png');
+        background-image: url('/static/images/image46.jpg');
         background-size: cover;
-        background-position: center;
+        background-position: right;
         z-index: -1;
       }
       .right-background {
@@ -77,9 +77,9 @@
       right: 0;
       bottom: 0;
       width: 15%; /* Adjust this value as needed */
-      background-image: url('/static/images/natyr.png'); 
+      background-image: url('/static/images/image46.jpg'); 
       background-size: cover;
-      background-position: center;
+      background-position: left;
       z-index: -1;
       }
 
@@ -93,22 +93,37 @@
         left: 0%; /* Adjust this value as needed */
         width: 100%; /* Adjust this value as needed */
       }
-    
       body {
-        background-image: url("/static/images/foto2.jpg");
-        background-size: cover;
-        background-position: center;
+      
+      background-image: url("/static/images/image48.jpg"); 
+       background-size: cover;
+       background-position: center;
+       background-attachment: fixed;
+
+        
       }
+   
+
+    
+    
+      
+
     </style>
     
     
   </head>
 <body>
+ 
+
   <div class="left-background"></div>
   <div class="right-background"></div> 
+  
+
     <div class="wrapper">
-  <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #023020; color: #f6f6f6;">
-    <a class="navbar-brand" style="color: #f6f6f6;" href="{% url 'blog_post_list' %}">My App</a>
+      
+
+  <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #8f663f; color: black;">
+    <a class="navbar-brand" style="color: white;" href="{% url 'blog_post_list' %}">My App</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -117,33 +132,31 @@
       <ul class="navbar-nav mr-auto">
         {% if user.is_authenticated %}
         {% if user.is_authenticated %}
-  <a class="nav-link" style="color: #f6f6f6;" href="{% url 'user_profile_detail' user.pk %}">My Account</a>
+  <a class="nav-link" style="color: white;" href="{% url 'user_profile_detail' user.pk %}">My Account</a>
 {% endif %}
 
         <li class="nav-item">
-          <a class="nav-link" style="color: #f6f6f6;" href="{% url 'logout' %}">Logout</a>
+          <a class="nav-link" style="color: white;" href="{% url 'logout' %}">Logout</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link"  style="color: #f6f6f6;" href="{% url 'change_password' %}">Change Password</a>
-        </li>
+      
         
         <li class="nav-item">
-          <a class="nav-link"  style="color: #f6f6f6;" href="{% url 'upload_file' %}">Upload</a>
+          <a class="nav-link"  style="color: white;" href="{% url 'upload_file' %}">Upload</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style="color: #f6f6f6;" href="{% url 'display_images' %}">Images</a>
+          <a class="nav-link" style="color: white;" href="{% url 'display_images' %}">Books</a>
         </li>
         {% else %}
         <li class="nav-item">
-          <a class="nav-link" style="color: #f6f6f6;" href="{% url 'login' %}">Login</a>
+          <a class="nav-link" style="color: white;" href="{% url 'login' %}">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  style="color: #f6f6f6;" href="{% url 'register' %}">Register</a>
+          <a class="nav-link"  style="color: white;" href="{% url 'register' %}">Register</a>
         </li>
         {% endif %}
 
         <li class="nav-item">
-          <a class="nav-link"   style="color: #f6f6f6;" href="{% url 'blog_post_list' %}">My Blog</a>
+          <a class="nav-link"   style="color: white;" href="{% url 'blog_post_list' %}">My Blog</a>
         </li>
         {% if user.is_authenticated and user.is_staff %}
         <li class="nav-item">
@@ -154,7 +167,7 @@
         <!-- Add the search form here -->
         <form class="form-inline my-2 my-lg-0" id="search-form">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
-          <button class="btn btn-outline-success my-2 my-sm-0" style="color: #f6f6f6;"  type="submit">Search</button>
+          <button class="btn btn-outline-success my-2 my-sm-0" style="color: white;"  type="submit">Search</button>
         </form>
       </ul>
     </div>
