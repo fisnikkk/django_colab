@@ -33,19 +33,30 @@
   .fancy-input:hover, .fancy-button:hover {
     background-color: #45a049;
   }
-      /* Add these styles */
-      #search-suggestions {
-        position: absolute;
-        top: 100%;
-        left: 400px;
-        right: 0;
-        background-color: rgb(16, 16, 16);
-        border: 0px solid #ccc;
-        padding: 10px;
-        max-width: 200px; /* Adjust this value according to your needs */
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-    }
+    /* Update these styles */
+  #search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 450px;
+    right: 0;
+    background-color: white; /* Change this line */
+    border: 0px solid #ccc;
+    padding: 10px;
+    max-width: 200px; /* Adjust this value according to your needs */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#search-suggestions div {
+    cursor: pointer;
+    padding: 0px 0px;
+    color: black; /* Add this line */
+}
+
+#search-suggestions div:hover {
+    background-color: #f1f1f1;
+}
+    
 
     #search-suggestions div {
         cursor: pointer;
