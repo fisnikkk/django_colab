@@ -19,6 +19,8 @@
     <div class="col-md-4" style="padding: 10px;">
       <div class="image-container">
         <img src="{{ image.docfile.url }}" alt="{{ image.docfile.name }}"  class="img-thumbnail image" onclick="openModal(this);">
+
+
       </div>
       <form method="post" action="{% url 'delete_image' image.pk %}" style="margin-top: 10px;">
         {% csrf_token %}
